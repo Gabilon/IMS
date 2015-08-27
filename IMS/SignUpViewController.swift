@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -24,6 +25,10 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        self.edgesForExtendedLayout = UIRectEdge()
     }
 
     override func didReceiveMemoryWarning() {
@@ -93,13 +98,62 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
             
             //presenting the alert to the viewController
             self.presentViewController(myAlert, animated: true, completion: nil)
+            
+            return
         }
         
         let profileImageData = UIImageJPEGRepresentation(profilePhotoImageView.image, 1)
         
+        
+        //Parse User Object
+        let myUser:PFUser = PFUser()
+        
+        //declaring variables
+        myUser.username = email
+        myUser.password = password
+        myUser.email = email
+        
+        //Set the objects to the Parse server (must be the same key)
+        myUser.setObject(firstName, forKey: "first_Name")
+        myUser.setObject(lastName, forKey: "last_Name")
+        
+        //Add up the image to the server
         if (profilePhotoImageView != nil){
-            //Create PFFileObject to be sent Parse Cloud Service
+            let profileImageFile = PFFile(data: profileImageData)
+            myUser.setObject(profileImageFile, forKey: "profile_picture")
+            
         }
+        
+        myUser.signUpInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
+            
+            var userMessage = "Registration is successful."
+            
+            if (!success){
+            
+                //userMessage = "Could not register at this time.  Please try again later."
+                
+                //Parse error
+                userMessage = error!.localizedDescription
+            }
+            
+            //Alert window
+            var myAlert = UIAlertController(title: "Alert!", message:userMessage, preferredStyle: UIAlertControllerStyle.Alert)
+            
+            //Creating button to dismiss alert window
+            let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+            
+            if (success){
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+            
+            
+            //Adding okButton to the alert (appending it)
+            myAlert.addAction(okButton)
+            
+            //presenting the alert to the viewController
+            self.presentViewController(myAlert, animated: true, completion: nil)
+        }
+
         
     }
     
