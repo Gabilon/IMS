@@ -8,7 +8,7 @@
         <!--Sign in-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="IMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignIn" id="BYZ-38-t0r" customClass="ViewController" customModule="IMS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -103,7 +103,7 @@
         <!--Registration-->
         <scene sceneID="GbX-NV-Kj9">
             <objects>
-                <viewController storyboardIdentifier="SignUpViewController" id="N0e-av-HTO" customClass="SignUpViewController" customModule="IMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Registration" id="N0e-av-HTO" customClass="SignUpViewController" customModule="IMS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ds0-OJ-E5K"/>
                         <viewControllerLayoutGuide type="bottom" id="IIM-TT-aP1"/>
@@ -272,12 +272,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B63-CQ-URq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2233.5" y="280"/>
+            <point key="canvasLocation" x="2701.5" y="170"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hie-F4-zXR">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YTh-YK-HhA" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavControllerInitial" automaticallyAdjustsScrollViewInsets="NO" id="YTh-YK-HhA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rs8-Sb-a1M">
@@ -296,7 +296,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Fia-Xy-ANb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Whl-w8-5Cg" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavControllerSecond" automaticallyAdjustsScrollViewInsets="NO" id="Whl-w8-5Cg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aNy-u0-wAG">
@@ -315,7 +315,7 @@
         <!--Inventory Management System-->
         <scene sceneID="MUR-uC-vwn">
             <objects>
-                <viewController id="iB8-Z6-Bm9" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProtectedPageInitial" id="iB8-Z6-Bm9" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pNP-35-V07"/>
                         <viewControllerLayoutGuide type="bottom" id="dos-ez-Ib1"/>
@@ -330,12 +330,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DS4-QU-PXo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2233.5" y="1106.5"/>
+            <point key="canvasLocation" x="2701.5" y="1014.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="S9F-7E-XOA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v4f-Hv-psF" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavControllerThird" automaticallyAdjustsScrollViewInsets="NO" id="v4f-Hv-psF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eja-uh-uJJ">

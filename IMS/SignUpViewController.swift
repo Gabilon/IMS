@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Bolts
 
 class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -104,7 +105,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         let profileImageData = UIImageJPEGRepresentation(profilePhotoImageView.image, 1)
         
-        
+
         //Parse User Object
         let myUser:PFUser = PFUser()
         
@@ -124,7 +125,8 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
             
         }
         
-        myUser.signUpInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
+
+        myUser.signUpInBackgroundWithBlock { (success:Bool,error:NSError?) -> Void in
             
             var userMessage = "Registration is successful."
             
@@ -140,10 +142,13 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
             var myAlert = UIAlertController(title: "Alert!", message:userMessage, preferredStyle: UIAlertControllerStyle.Alert)
             
             //Creating button to dismiss alert window
-            let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
-            
-            if (success){
-                self.dismissViewControllerAnimated(true, completion: nil)
+            let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default){ action in
+                
+                if(success)
+                {
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
+                
             }
             
             
