@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import Bolts
 
-class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var profilePhotoImageView: UIImageView!
     
@@ -37,6 +37,13 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Dispose of any resources that can be recreated.
     }
     
+    //Text Field Delegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
     @IBAction func selectProfilePhotoButtonTapped(sender: AnyObject) {
         
         var myPickerController = UIImagePickerController()
@@ -61,6 +68,9 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func SignUpButton(sender: AnyObject) {
+        
+        self.view.endEditing(true)
+        
         let firstName = userFirstName.text
         let lastName = userLastName.text
         let email = userEmailAddress.text
@@ -105,9 +115,9 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         let profileImageData = UIImageJPEGRepresentation(profilePhotoImageView.image, 1)
         
-
+        PFUser.logOut()
         //Parse User Object
-        let myUser:PFUser = PFUser()
+        let myUser = PFUser()
         
         //declaring variables
         myUser.username = email
@@ -124,18 +134,25 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
             myUser.setObject(profileImageFile, forKey: "profile_picture")
             
         }
+        //Show activity indicator
+        let spiningActivity = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
+        spiningActivity.labelText = "Sending"
+        spiningActivity.detailsLabelText = "Please wait"
 
         myUser.signUpInBackgroundWithBlock { (success:Bool,error:NSError?) -> Void in
             
-            var userMessage = "Registration is successful."
+            //Hiding activity animation
+            spiningActivity.hide(true)
+            
+            var userMessage = "Registration is successful.  Please verify your email before loggin in!"
             
             if (!success){
             
-                //userMessage = "Could not register at this time.  Please try again later."
+                userMessage = "Could not register at this time.  Please try again later."
                 
                 //Parse error
-                userMessage = error!.localizedDescription
+                //userMessage = error!.localizedDescription
             }
             
             //Alert window
