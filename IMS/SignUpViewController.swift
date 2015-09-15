@@ -26,6 +26,8 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        loadPictureEdit()
     }
     
     override func viewDidLayoutSubviews() {
@@ -177,6 +179,15 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
 
         
+    }
+    
+    func loadPictureEdit(){
+        
+        profilePhotoImageView.layer.borderWidth = 1
+        profilePhotoImageView.layer.masksToBounds = false
+        profilePhotoImageView.layer.borderColor = UIColor.blackColor().CGColor
+        profilePhotoImageView.layer.cornerRadius = profilePhotoImageView.frame.height/2
+        profilePhotoImageView.clipsToBounds = true
     }
     
 

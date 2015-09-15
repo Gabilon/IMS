@@ -39,6 +39,11 @@
 		AAE6FA381BA38B1A00246D68 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE6FA371BA38B1A00246D68 /* MBProgressHUD.m */; };
 		AAE6FA3A1BA3927200246D68 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE6FA391BA3927200246D68 /* PasswordResetViewController.swift */; };
 		AAE6FA3C1BA4E0B700246D68 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE6FA3B1BA4E0B700246D68 /* AboutViewController.swift */; };
+		AAEF2ECD1BA78CDE007D935F /* connectivity-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = AAEF2ECB1BA78CDE007D935F /* connectivity-bar.png */; };
+		AAEF2ECE1BA78CDE007D935F /* connectivity-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAEF2ECC1BA78CDE007D935F /* connectivity-bar@2x.png */; };
+		AAEF2ED21BA78D3D007D935F /* left_side.png in Resources */ = {isa = PBXBuildFile; fileRef = AAEF2ED01BA78D3D007D935F /* left_side.png */; };
+		AAEF2ED31BA78D3D007D935F /* left_side@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAEF2ED11BA78D3D007D935F /* left_side@2x.png */; };
+		AAEF2ED51BA792B9007D935F /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEF2ED41BA792B9007D935F /* EditProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +100,11 @@
 		AAE6FA371BA38B1A00246D68 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		AAE6FA391BA3927200246D68 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
 		AAE6FA3B1BA4E0B700246D68 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		AAEF2ECB1BA78CDE007D935F /* connectivity-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connectivity-bar.png"; sourceTree = "<group>"; };
+		AAEF2ECC1BA78CDE007D935F /* connectivity-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connectivity-bar@2x.png"; sourceTree = "<group>"; };
+		AAEF2ED01BA78D3D007D935F /* left_side.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_side.png; sourceTree = "<group>"; };
+		AAEF2ED11BA78D3D007D935F /* left_side@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_side@2x.png"; sourceTree = "<group>"; };
+		AAEF2ED41BA792B9007D935F /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,9 +162,10 @@
 		AA2BDFC21B86C08200CBF1EB /* IMS */ = {
 			isa = PBXGroup;
 			children = (
+				AAEF2ECF1BA78CE9007D935F /* icons */,
+				AAE6FA2B1BA34C5B00246D68 /* MMDrawer */,
 				AAE6FA361BA38B1A00246D68 /* MBProgressHUD.h */,
 				AAE6FA371BA38B1A00246D68 /* MBProgressHUD.m */,
-				AAE6FA2B1BA34C5B00246D68 /* MMDrawer */,
 				AA2BDFC51B86C08200CBF1EB /* AppDelegate.swift */,
 				AA2BDFC71B86C08200CBF1EB /* ViewController.swift */,
 				AA2BDFC91B86C08200CBF1EB /* Main.storyboard */,
@@ -168,6 +179,7 @@
 				AAE6FA2E1BA3634D00246D68 /* RightSideViewController.swift */,
 				AAE6FA391BA3927200246D68 /* PasswordResetViewController.swift */,
 				AAE6FA3B1BA4E0B700246D68 /* AboutViewController.swift */,
+				AAEF2ED41BA792B9007D935F /* EditProfileViewController.swift */,
 			);
 			path = IMS;
 			sourceTree = "<group>";
@@ -233,6 +245,17 @@
 				AAE6FA261BA34C5200246D68 /* UIViewController+MMDrawerController.m */,
 			);
 			name = MMDrawer;
+			sourceTree = "<group>";
+		};
+		AAEF2ECF1BA78CE9007D935F /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				AAEF2ED01BA78D3D007D935F /* left_side.png */,
+				AAEF2ED11BA78D3D007D935F /* left_side@2x.png */,
+				AAEF2ECB1BA78CDE007D935F /* connectivity-bar.png */,
+				AAEF2ECC1BA78CDE007D935F /* connectivity-bar@2x.png */,
+			);
+			name = icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,9 +339,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAEF2ED31BA78D3D007D935F /* left_side@2x.png in Resources */,
+				AAEF2ECD1BA78CDE007D935F /* connectivity-bar.png in Resources */,
+				AAEF2ECE1BA78CDE007D935F /* connectivity-bar@2x.png in Resources */,
 				AA2BDFCB1B86C08200CBF1EB /* Main.storyboard in Resources */,
 				AA2BDFD01B86C08200CBF1EB /* LaunchScreen.xib in Resources */,
 				AA2BDFCD1B86C08200CBF1EB /* Images.xcassets in Resources */,
+				AAEF2ED21BA78D3D007D935F /* left_side.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +369,7 @@
 				AAE6FA2A1BA34C5200246D68 /* UIViewController+MMDrawerController.m in Sources */,
 				AAE6FA381BA38B1A00246D68 /* MBProgressHUD.m in Sources */,
 				AAE6FA2F1BA3634D00246D68 /* RightSideViewController.swift in Sources */,
+				AAEF2ED51BA792B9007D935F /* EditProfileViewController.swift in Sources */,
 				AA2BDFC81B86C08200CBF1EB /* ViewController.swift in Sources */,
 				AAE6FA3A1BA3927200246D68 /* PasswordResetViewController.swift in Sources */,
 				AAE6FA281BA34C5200246D68 /* MMDrawerController.m in Sources */,

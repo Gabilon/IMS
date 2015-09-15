@@ -24,26 +24,10 @@ class LeftSideViewController: UIViewController, UITableViewDataSource, UITableVi
 
         // Do any additional setup after loading the view.
         
-        let userFirstName = PFUser.currentUser()?.objectForKey("first_Name") as! String
+        loadPictureEdit()
+        loadUserDetails()
         
-        let userLastName = PFUser.currentUser()?.objectForKey("last_Name") as! String
         
-        userFirstNameLabel.text = userFirstName
-        userLastNameLabel.text = userLastName
-        
-        let profilePictureObject = PFUser.currentUser()?.objectForKey("profile_picture") as? PFFile
-        
-        if(profilePictureObject != nil)
-        {
-            profilePictureObject!.getDataInBackgroundWithBlock { (imageData:NSData?, error:NSError?) -> Void in
-                
-                if(imageData != nil)
-                {
-                    self.userProfilePicture.image = UIImage(data: imageData!)
-                }
-                
-            }
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -149,4 +133,53 @@ class LeftSideViewController: UIViewController, UITableViewDataSource, UITableVi
         
         
     }
+    
+    @IBAction func editButton(sender: AnyObject) {
+        
+        var editProfile = self.storyboard?.instantiateViewControllerWithIdentifier("EditProfileViewController") as! EditProfileViewController
+        
+        editProfile.opener = self
+        
+        let editProfileNav = UINavigationController(rootViewController: editProfile)
+        
+        self.presentViewController(editProfileNav, animated: true, completion: nil)
+        
+        
+        
+    }
+    
+    //Refreshing user details
+    func loadUserDetails(){
+        
+        let userFirstName = PFUser.currentUser()?.objectForKey("first_Name") as! String
+        
+        let userLastName = PFUser.currentUser()?.objectForKey("last_Name") as! String
+        
+        userFirstNameLabel.text = userFirstName
+        userLastNameLabel.text = userLastName
+        
+        let profilePictureObject = PFUser.currentUser()?.objectForKey("profile_picture") as? PFFile
+        
+        if(profilePictureObject != nil)
+        {
+            profilePictureObject!.getDataInBackgroundWithBlock { (imageData:NSData?, error:NSError?) -> Void in
+                
+                if(imageData != nil)
+                {
+                    self.userProfilePicture.image = UIImage(data: imageData!)
+                }
+                
+            }
+        }
+    }
+    
+    func loadPictureEdit(){
+        
+        userProfilePicture.layer.borderWidth = 1
+        userProfilePicture.layer.masksToBounds = false
+        userProfilePicture.layer.borderColor = UIColor.blackColor().CGColor
+        userProfilePicture.layer.cornerRadius = userProfilePicture.frame.height/2
+        userProfilePicture.clipsToBounds = true
+    }
+    
 }
