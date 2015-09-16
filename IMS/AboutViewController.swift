@@ -10,10 +10,13 @@ import UIKit
 
 class AboutViewController: UIViewController {
 
+    @IBOutlet weak var giveNoteLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        giveNoteLabel.minimumScaleFactor = 0.5
     }
 
     override func didReceiveMemoryWarning() {
