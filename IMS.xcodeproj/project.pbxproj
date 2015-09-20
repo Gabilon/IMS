@@ -13,6 +13,13 @@
 		AA2BDFCD1B86C08200CBF1EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA2BDFCC1B86C08200CBF1EB /* Images.xcassets */; };
 		AA2BDFD01B86C08200CBF1EB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA2BDFCE1B86C08200CBF1EB /* LaunchScreen.xib */; };
 		AA2BDFDC1B86C08300CBF1EB /* IMSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2BDFDB1B86C08300CBF1EB /* IMSTests.swift */; };
+		AA4338391BAAEB6D00737377 /* CreateInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4338381BAAEB6D00737377 /* CreateInventoryViewController.swift */; };
+		AA43383D1BAE2CD500737377 /* MKAccordionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA43383C1BAE2CD500737377 /* MKAccordionView.swift */; };
+		AA4338441BAE2D5C00737377 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = AA43383F1BAE2D5C00737377 /* close.png */; };
+		AA4338451BAE2D5C00737377 /* grayBar.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4338401BAE2D5C00737377 /* grayBar.png */; };
+		AA4338461BAE2D5C00737377 /* grayBarSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4338411BAE2D5C00737377 /* grayBarSelected.png */; };
+		AA4338471BAE2D5C00737377 /* lightGrayBarWithBlueStripe.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4338421BAE2D5C00737377 /* lightGrayBarWithBlueStripe.png */; };
+		AA4338481BAE2D5C00737377 /* open.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4338431BAE2D5C00737377 /* open.png */; };
 		AAD3D1121B8819F50042E583 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD3D1101B8819F50042E583 /* Bolts.framework */; };
 		AAD3D1131B8819F50042E583 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD3D1111B8819F50042E583 /* Parse.framework */; };
 		AAD3D1151B881A320042E583 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD3D1141B881A320042E583 /* AudioToolbox.framework */; };
@@ -67,6 +74,13 @@
 		AA2BDFD51B86C08300CBF1EB /* IMSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IMSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2BDFDA1B86C08300CBF1EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA2BDFDB1B86C08300CBF1EB /* IMSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSTests.swift; sourceTree = "<group>"; };
+		AA4338381BAAEB6D00737377 /* CreateInventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateInventoryViewController.swift; sourceTree = "<group>"; };
+		AA43383C1BAE2CD500737377 /* MKAccordionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKAccordionView.swift; sourceTree = "<group>"; };
+		AA43383F1BAE2D5C00737377 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		AA4338401BAE2D5C00737377 /* grayBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayBar.png; sourceTree = "<group>"; };
+		AA4338411BAE2D5C00737377 /* grayBarSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayBarSelected.png; sourceTree = "<group>"; };
+		AA4338421BAE2D5C00737377 /* lightGrayBarWithBlueStripe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightGrayBarWithBlueStripe.png; sourceTree = "<group>"; };
+		AA4338431BAE2D5C00737377 /* open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = open.png; sourceTree = "<group>"; };
 		AAD3D1101B8819F50042E583 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		AAD3D1111B8819F50042E583 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		AAD3D1141B881A320042E583 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -162,6 +176,7 @@
 		AA2BDFC21B86C08200CBF1EB /* IMS */ = {
 			isa = PBXGroup;
 			children = (
+				AA43383E1BAE2CDA00737377 /* View */,
 				AAEF2ECF1BA78CE9007D935F /* icons */,
 				AAE6FA2B1BA34C5B00246D68 /* MMDrawer */,
 				AAE6FA361BA38B1A00246D68 /* MBProgressHUD.h */,
@@ -180,6 +195,7 @@
 				AAE6FA391BA3927200246D68 /* PasswordResetViewController.swift */,
 				AAE6FA3B1BA4E0B700246D68 /* AboutViewController.swift */,
 				AAEF2ED41BA792B9007D935F /* EditProfileViewController.swift */,
+				AA4338381BAAEB6D00737377 /* CreateInventoryViewController.swift */,
 			);
 			path = IMS;
 			sourceTree = "<group>";
@@ -187,6 +203,11 @@
 		AA2BDFC31B86C08200CBF1EB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AA4338431BAE2D5C00737377 /* open.png */,
+				AA43383F1BAE2D5C00737377 /* close.png */,
+				AA4338401BAE2D5C00737377 /* grayBar.png */,
+				AA4338411BAE2D5C00737377 /* grayBarSelected.png */,
+				AA4338421BAE2D5C00737377 /* lightGrayBarWithBlueStripe.png */,
 				AA2BDFC41B86C08200CBF1EB /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -207,6 +228,14 @@
 				AA2BDFDA1B86C08300CBF1EB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA43383E1BAE2CDA00737377 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AA43383C1BAE2CD500737377 /* MKAccordionView.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		AAD3D12E1B881AB90042E583 /* Frameworks */ = {
@@ -340,11 +369,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAEF2ED31BA78D3D007D935F /* left_side@2x.png in Resources */,
+				AA4338461BAE2D5C00737377 /* grayBarSelected.png in Resources */,
 				AAEF2ECD1BA78CDE007D935F /* connectivity-bar.png in Resources */,
+				AA4338441BAE2D5C00737377 /* close.png in Resources */,
 				AAEF2ECE1BA78CDE007D935F /* connectivity-bar@2x.png in Resources */,
+				AA4338481BAE2D5C00737377 /* open.png in Resources */,
 				AA2BDFCB1B86C08200CBF1EB /* Main.storyboard in Resources */,
 				AA2BDFD01B86C08200CBF1EB /* LaunchScreen.xib in Resources */,
 				AA2BDFCD1B86C08200CBF1EB /* Images.xcassets in Resources */,
+				AA4338471BAE2D5C00737377 /* lightGrayBarWithBlueStripe.png in Resources */,
+				AA4338451BAE2D5C00737377 /* grayBar.png in Resources */,
 				AAEF2ED21BA78D3D007D935F /* left_side.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,11 +402,13 @@
 				AAE6FA271BA34C5200246D68 /* MMDrawerBarButtonItem.m in Sources */,
 				AAE6FA2A1BA34C5200246D68 /* UIViewController+MMDrawerController.m in Sources */,
 				AAE6FA381BA38B1A00246D68 /* MBProgressHUD.m in Sources */,
+				AA43383D1BAE2CD500737377 /* MKAccordionView.swift in Sources */,
 				AAE6FA2F1BA3634D00246D68 /* RightSideViewController.swift in Sources */,
 				AAEF2ED51BA792B9007D935F /* EditProfileViewController.swift in Sources */,
 				AA2BDFC81B86C08200CBF1EB /* ViewController.swift in Sources */,
 				AAE6FA3A1BA3927200246D68 /* PasswordResetViewController.swift in Sources */,
 				AAE6FA281BA34C5200246D68 /* MMDrawerController.m in Sources */,
+				AA4338391BAAEB6D00737377 /* CreateInventoryViewController.swift in Sources */,
 				AA2BDFC61B86C08200CBF1EB /* AppDelegate.swift in Sources */,
 				AAE6FA2D1BA360C900246D68 /* LeftSideViewController.swift in Sources */,
 				AAE6FA3C1BA4E0B700246D68 /* AboutViewController.swift in Sources */,
