@@ -2,18 +2,19 @@
 //  CreateInventoryTableViewController.swift
 //  IMS
 //
-//  Created by Gabriel Bermudez on 9/19/15.
-//  Copyright (c) 2015 Gabriel Bermudez. All rights reserved.
+//  Created by Gabriel Bermudez on 9/21/15.
+//  Copyright © 2015 Gabriel Bermudez. All rights reserved.
 //
 
 import UIKit
+import Parse
+import Bolts
 
 class CreateInventoryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,20 +25,34 @@ class CreateInventoryTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
+        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 3
+        // #warning Incomplete implementation, return the number of rows
+        return 8
     }
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "brochureSegue"{
+//            
+//            let nav = segue.destinationViewController as! UINavigationController
+//            
+//            let brochureDataViewController = nav.topViewController as! BrochureDataViewController
+//            
+//            let dataObject = sender as AnyObject?
+//            
+//            brochureDataViewController.dataObject = dataObject
+//            
+//            
+//        }
+//        
+//    }
 
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
 
         // Configure the cell...
 
@@ -48,7 +63,7 @@ class CreateInventoryTableViewController: UITableViewController {
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
+        // Return false if you do not want the specified item to be editable.
         return true
     }
     */
@@ -75,7 +90,7 @@ class CreateInventoryTableViewController: UITableViewController {
     /*
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
+        // Return false if you do not want the item to be re-orderable.
         return true
     }
     */
@@ -85,9 +100,36 @@ class CreateInventoryTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
+        // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func buttonCancel(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    @IBAction func updateButton(sender: AnyObject) {
+        
+        let query = PFQuery(className: "Publication")
+        query.limit = 150
+        query.selectKeys(["publication_id","publication_Type","publication_Name"])
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            query.findObjectsInBackgroundWithBlock({ (pubObject, error) -> Void in
+                if error == nil {
+                    print("Succesfully retrieved \(pubObject!.count)")
+                    PFObject.saveAllInBackground(pubObject, block: { (success, error) -> Void in
+                        print("Saved \(pubObject!.count) in local DataStore")
+                    })
+                    
+                }
+            })
+        }
+        
+    }
+    
+
+    
+    
+    
 
 }

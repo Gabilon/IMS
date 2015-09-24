@@ -76,7 +76,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func chooseProfileButton(sender: AnyObject) {
         
         //Check pictures in iOS device
-        var myPickerController = UIImagePickerController()
+        let myPickerController = UIImagePickerController()
         myPickerController.delegate = self;
         myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
@@ -85,7 +85,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     //Setting picture to the UIImageView
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]){
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]){
         profilePictureImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -97,13 +97,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         let myUser:PFUser = PFUser.currentUser()!
         
         //Get Profile Picture
-        let profileImageData = UIImageJPEGRepresentation(profilePictureImageView.image, 1)
+        let profileImageData = UIImageJPEGRepresentation(profilePictureImageView.image!, 1)
         
         //Check if first name and last name are empty (and pic)
-        if(firstNameTextField.text.isEmpty || lastNameTextField.text.isEmpty || (profileImageData == nil)){
+        if(firstNameTextField.text!.isEmpty || lastNameTextField.text!.isEmpty || (profileImageData == nil)){
             
             //Alert window
-            var myAlert = UIAlertController(title: "Alert!", message: "First and Last name's cannot be empty", preferredStyle: UIAlertControllerStyle.Alert)
+            let myAlert = UIAlertController(title: "Alert!", message: "First and Last name's cannot be empty", preferredStyle: UIAlertControllerStyle.Alert)
             
             //Creating button to dismiss alert window
             let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
@@ -118,9 +118,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         }
         
         //If user decides to update passwords
-        if(!passwordTextField.text.isEmpty && (passwordTextField.text != repeatPasswordTextField.text)){
+        if(!passwordTextField.text!.isEmpty && (passwordTextField.text != repeatPasswordTextField.text)){
             //Alert window
-            var myAlert = UIAlertController(title: "Alert!", message: "Passwords do not match.", preferredStyle: UIAlertControllerStyle.Alert)
+            let myAlert = UIAlertController(title: "Alert!", message: "Passwords do not match.", preferredStyle: UIAlertControllerStyle.Alert)
             
             //Creating button to dismiss alert window
             let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
@@ -138,11 +138,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         let userFirstName = firstNameTextField.text
         let userLastName = lastNameTextField.text
         
-        myUser.setObject(userFirstName, forKey: "first_Name")
-        myUser.setObject(userLastName, forKey: "last_Name")
+        myUser.setObject(userFirstName!, forKey: "first_Name")
+        myUser.setObject(userLastName!, forKey: "last_Name")
         
         //set new password
-        if(!passwordTextField.text.isEmpty){
+        if(!passwordTextField.text!.isEmpty){
             let userPassword = passwordTextField.text
             myUser.password = userPassword
             
@@ -150,7 +150,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         //Set profile picture
         if (profileImageData != nil){
-            let profileFileObject = PFFile(data:profileImageData)
+            let profileFileObject = PFFile(data:profileImageData!)
             myUser.setObject(profileFileObject, forKey: "profile_picture")
         }
         
@@ -167,7 +167,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             
             if (error != nil){
                 //Alert window
-                var myAlert = UIAlertController(title: "Alert!", message: "We are sorry, user details were not stored.  Check your internet!", preferredStyle: UIAlertControllerStyle.Alert)
+                let myAlert = UIAlertController(title: "Alert!", message: "We are sorry, user details were not stored.  Check your internet!", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 //Creating button to dismiss alert window
                 let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
@@ -184,10 +184,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             if (success){
                 
                 //Alert window
-                var myAlert = UIAlertController(title: "Success", message: "Your Profile has been updated!", preferredStyle: UIAlertControllerStyle.Alert)
+                let myAlert = UIAlertController(title: "Success", message: "Your Profile has been updated!", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 //Creating button to dismiss alert window
-                let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
+                let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction) -> Void in
                     
                     self.dismissViewControllerAnimated(true, completion: { () -> Void in
                         self.opener.loadUserDetails()

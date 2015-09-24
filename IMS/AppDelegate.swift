@@ -24,6 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Parse.
         Parse.setApplicationId("10RhLvgLglDSCgXKU92Z7Jcz8wNxs2gBtvJApgr8",
             clientKey: "ybLtysuFVfE2rmrbggl8bPw3wGwjVoHaKwQCq42y")
+        PFUser.enableAutomaticUser()
+        let defaultACL = PFACL()
+        PFACL.setDefaultACL(defaultACL, withAccessForCurrentUser: true)
+        
+        
         
         // [Optional] Track statistics around application opens.
         //PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
@@ -68,16 +73,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let mainStoryBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
             //Instantiating ViewControllers to the main protected page
-            var mainPage:MainPageViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("MainPageViewController") as! MainPageViewController
+            let mainPage:MainPageViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("MainPageViewController") as! MainPageViewController
             
-            var leftSideMenu:LeftSideViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("LeftSideViewController") as! LeftSideViewController
+            let leftSideMenu:LeftSideViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("LeftSideViewController") as! LeftSideViewController
             
-            var rightSideMenu:RightSideViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("RightSideViewController") as! RightSideViewController
+            let rightSideMenu:RightSideViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("RightSideViewController") as! RightSideViewController
             
             //Wrap into Navigation controllers
-            var mainPageNav = UINavigationController(rootViewController: mainPage)
-            var leftSideMenuNav = UINavigationController(rootViewController: leftSideMenu)
-            var rightSideMenuNav = UINavigationController(rootViewController: rightSideMenu)
+            let mainPageNav = UINavigationController(rootViewController: mainPage)
+            let leftSideMenuNav = UINavigationController(rootViewController: leftSideMenu)
+            let rightSideMenuNav = UINavigationController(rootViewController: rightSideMenu)
             
             drawerContainer = MMDrawerController(centerViewController: mainPageNav, leftDrawerViewController: leftSideMenuNav, rightDrawerViewController: rightSideMenuNav)
             

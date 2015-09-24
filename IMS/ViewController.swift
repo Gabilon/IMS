@@ -40,10 +40,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let userPassword = userPasswordTextField.text
         
         //If it's empty, return and it will not let the func continue
-        if(userEmail.isEmpty || userPassword.isEmpty){
+        if(userEmail!.isEmpty || userPassword!.isEmpty){
             
             //Alert window
-            var myAlert = UIAlertController(title: "Alert!", message: "All fields must be entered", preferredStyle: UIAlertControllerStyle.Alert)
+            let myAlert = UIAlertController(title: "Alert!", message: "All fields must be entered", preferredStyle: UIAlertControllerStyle.Alert)
             
             //Creating button to dismiss alert window
             let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
@@ -62,8 +62,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         spiningActivity.labelText = "Loggin in"
         spiningActivity.detailsLabelText = "Please wait"
         
-        PFUser.logOut()
-        PFUser.logInWithUsernameInBackground(userEmail, password: userPassword) { (user:PFUser?, error:NSError?) -> Void in
+        //PFUser.logOut()
+        PFUser.logInWithUsernameInBackground(userEmail!, password: userPassword!) { (user:PFUser?, error:NSError?) -> Void in
             
             //Close spinning activity
             spiningActivity.hide(true)
@@ -84,7 +84,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 
                 //Navigate to Protected Main Page
                 
-                var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 
                 appDelegate.buildUserInterface()
                 
@@ -96,7 +96,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 userMessage = error!.localizedDescription
                 
                 //Alert
-                var myAlert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert)
+                let myAlert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert)
                 //Ok button
                 let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
                 

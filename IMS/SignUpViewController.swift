@@ -26,12 +26,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         loadPictureEdit()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        self.edgesForExtendedLayout = UIRectEdge()
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,7 +43,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func selectProfilePhotoButtonTapped(sender: AnyObject) {
         
-        var myPickerController = UIImagePickerController()
+        let myPickerController = UIImagePickerController()
         
         myPickerController.delegate = self
         myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
@@ -57,7 +52,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]){
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]){
         
         profilePhotoImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         
@@ -80,10 +75,10 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         let repeatPassword = userReEnterPassword.text
         
         //check if fields are empty
-        if (firstName.isEmpty || lastName.isEmpty || email.isEmpty || password.isEmpty || repeatPassword.isEmpty){
+        if (firstName!.isEmpty || lastName!.isEmpty || email!.isEmpty || password!.isEmpty || repeatPassword!.isEmpty){
             
             //Alert window
-            var myAlert = UIAlertController(title: "Alert!", message: "All fields must be entered", preferredStyle: UIAlertControllerStyle.Alert)
+            let myAlert = UIAlertController(title: "Alert!", message: "All fields must be entered", preferredStyle: UIAlertControllerStyle.Alert)
             
             //Creating button to dismiss alert window
             let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
@@ -101,7 +96,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         if (password != repeatPassword) {
             
             //Alert window
-            var myAlert = UIAlertController(title: "Alert!", message: "Passwords do not match.", preferredStyle: UIAlertControllerStyle.Alert)
+            let myAlert = UIAlertController(title: "Alert!", message: "Passwords do not match.", preferredStyle: UIAlertControllerStyle.Alert)
             
             //Creating button to dismiss alert window
             let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
@@ -115,7 +110,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
             return
         }
         
-        let profileImageData = UIImageJPEGRepresentation(profilePhotoImageView.image, 1)
+        let profileImageData = UIImageJPEGRepresentation(profilePhotoImageView.image!, 1)
         
         PFUser.logOut()
         //Parse User Object
@@ -127,12 +122,12 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         myUser.email = email
         
         //Set the objects to the Parse server (must be the same key)
-        myUser.setObject(firstName, forKey: "first_Name")
-        myUser.setObject(lastName, forKey: "last_Name")
+        myUser.setObject(firstName!, forKey: "first_Name")
+        myUser.setObject(lastName!, forKey: "last_Name")
         
         //Add up the image to the server
         if (profilePhotoImageView != nil){
-            let profileImageFile = PFFile(data: profileImageData)
+            let profileImageFile = PFFile(data: profileImageData!)
             myUser.setObject(profileImageFile, forKey: "profile_picture")
             
         }
@@ -158,7 +153,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
             }
             
             //Alert window
-            var myAlert = UIAlertController(title: "Alert!", message:userMessage, preferredStyle: UIAlertControllerStyle.Alert)
+            let myAlert = UIAlertController(title: "Alert!", message:userMessage, preferredStyle: UIAlertControllerStyle.Alert)
             
             //Creating button to dismiss alert window
             let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default){ action in

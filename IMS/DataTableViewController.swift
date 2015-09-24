@@ -7,17 +7,28 @@
 //
 
 import UIKit
+import Parse
+import Bolts
 
 class DataTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let query = PFQuery(className: "Publication")
+        query.fromLocalDatastore()
+        query.whereKey("publication_Type", equalTo: "Tract")
+        query.findObjectsInBackground().continueWithBlock {
+            (task: BFTask!) -> AnyObject in
+            if let error = task.error {
+                print("Error: \(error)")
+                return task
+            }
+            
+            print("Retrieved \(task.result.count)")
+            return task
+        }
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +50,7 @@ class DataTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("LabelCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("LabelCell", forIndexPath: indexPath) 
         
         cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
         return cell

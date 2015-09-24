@@ -49,8 +49,8 @@ class LeftSideViewController: UIViewController, UITableViewDataSource, UITableVi
         
         
         
-       var myCell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath
-        ) as! UITableViewCell
+       let myCell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath
+        ) 
         
         myCell.textLabel?.text = menuItems[indexPath.row]
         
@@ -66,11 +66,11 @@ class LeftSideViewController: UIViewController, UITableViewDataSource, UITableVi
             
             //open main page
             
-            var mainPageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MainPageViewController") as! MainPageViewController
+            let mainPageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MainPageViewController") as! MainPageViewController
             
-            var mainpageNav = UINavigationController(rootViewController: mainPageViewController)
+            let mainpageNav = UINavigationController(rootViewController: mainPageViewController)
             
-            var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             
             appDelegate.drawerContainer!.centerViewController = mainpageNav
             appDelegate.drawerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
@@ -81,11 +81,11 @@ class LeftSideViewController: UIViewController, UITableViewDataSource, UITableVi
         case 1:
             //open about page
             
-            var aboutViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AboutViewController") as! AboutViewController
+            let aboutViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AboutViewController") as! AboutViewController
             
-            var aboutpageNav = UINavigationController(rootViewController: aboutViewController)
+            let aboutpageNav = UINavigationController(rootViewController: aboutViewController)
             
-            var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             
             appDelegate.drawerContainer!.centerViewController = aboutpageNav
             appDelegate.drawerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
@@ -107,7 +107,9 @@ class LeftSideViewController: UIViewController, UITableViewDataSource, UITableVi
             spiningActivity.detailsLabelText = "Please wait"
             
             //Send instrucctions to log out user in background
+            PFObject.unpinAllObjectsInBackground()
             PFUser.logOutInBackground()
+            
             
             //hide spinning activity
             spiningActivity.hide(true)
@@ -115,18 +117,18 @@ class LeftSideViewController: UIViewController, UITableViewDataSource, UITableVi
             //Navigate to Protected Page
             let mainStoryBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
-            var signInPage:ViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+            let signInPage:ViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
             
-            var signInPageNav = UINavigationController(rootViewController: signInPage)
+            let signInPageNav = UINavigationController(rootViewController: signInPage)
             
-            var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             
             appDelegate.window?.rootViewController = signInPageNav
             
             break
             
         default:
-            println("Option is not handled")
+            print("Option is not handled")
             
         }
         
@@ -136,7 +138,7 @@ class LeftSideViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBAction func editButton(sender: AnyObject) {
         
-        var editProfile = self.storyboard?.instantiateViewControllerWithIdentifier("EditProfileViewController") as! EditProfileViewController
+        let editProfile = self.storyboard?.instantiateViewControllerWithIdentifier("EditProfileViewController") as! EditProfileViewController
         
         editProfile.opener = self
         

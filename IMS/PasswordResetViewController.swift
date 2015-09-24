@@ -32,11 +32,11 @@ class PasswordResetViewController: UIViewController {
         
         let emailAddress = emailAddressTextField.text
         
-        if emailAddress.isEmpty{
+        if emailAddress!.isEmpty{
            
             //Display a warning message
             let userMessage:String = "Please type in your email"
-            var myAlert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert)
+            let myAlert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert)
             
             let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default){ action in
                 return
@@ -54,14 +54,14 @@ class PasswordResetViewController: UIViewController {
         spiningActivity.detailsLabelText = "Please wait"
         
         
-        PFUser.requestPasswordResetForEmailInBackground(emailAddress, block: { (success:Bool, error:NSError?) -> Void in
+        PFUser.requestPasswordResetForEmailInBackground(emailAddress!, block: { (success:Bool, error:NSError?) -> Void in
             
             spiningActivity.hide(true)
             
             if(error != nil){
                 // Display error message
                 let userMessage:String = error!.localizedDescription
-                var myAlert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert)
+                let myAlert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert)
                 
                 let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default){ action in
                     
@@ -85,7 +85,7 @@ class PasswordResetViewController: UIViewController {
     
     func displayMessage(userMessage:String){
         
-        var myAlert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert)
+        let myAlert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert)
         
         let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default){ action in
             
