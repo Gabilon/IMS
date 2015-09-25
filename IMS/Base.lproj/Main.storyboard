@@ -1010,7 +1010,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Iventory Management System" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWR-II-3EM">
                                         <rect key="frame" x="230" y="290" width="367" height="85"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="tintColor" patternImage="A6F4981E-0791-458C-B561-E21A93409457" colorSpace="pattern"/>
+                                        <color key="tintColor" patternImage="BBA708B3-AEB3-49A9-9A29-7F7B3EDF6DA3" colorSpace="pattern"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="85" id="Wh3-C9-VtN"/>
                                             <constraint firstAttribute="width" constant="367" id="vFh-TT-gP4"/>
@@ -1439,7 +1439,6 @@
         <!--Books-->
         <scene sceneID="qif-wp-mjY">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tJP-aa-acv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="4CG-9d-SVw" customClass="BookDataViewController" customModule="IMS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yox-F7-yKR"/>
@@ -1460,6 +1459,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="768"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tJP-aa-acv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3229" y="2980"/>
         </scene>
@@ -1550,7 +1550,6 @@
         <!--Navigation Controller-->
         <scene sceneID="wGU-Bl-YDL">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MPE-mg-dYi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="boU-WI-H7O" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="67E-dA-373">
@@ -1562,12 +1561,13 @@
                         <segue destination="4CG-9d-SVw" kind="relationship" relationship="rootViewController" id="QbX-W6-3bI"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MPE-mg-dYi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1990" y="2520"/>
         </scene>
     </scenes>
     <resources>
-        <image name="A6F4981E-0791-458C-B561-E21A93409457" width="640" height="920">
+        <image name="BBA708B3-AEB3-49A9-9A29-7F7B3EDF6DA3" width="640" height="920">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

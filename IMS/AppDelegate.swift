@@ -24,9 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Parse.
         Parse.setApplicationId("10RhLvgLglDSCgXKU92Z7Jcz8wNxs2gBtvJApgr8",
             clientKey: "ybLtysuFVfE2rmrbggl8bPw3wGwjVoHaKwQCq42y")
-        PFUser.enableAutomaticUser()
-        let defaultACL = PFACL()
-        PFACL.setDefaultACL(defaultACL, withAccessForCurrentUser: true)
+        
         
         
         

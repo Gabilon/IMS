@@ -8,15 +8,15 @@
 
 import UIKit
 import Parse
+import Bolts
 
 class BookDataViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let bookQuery = PFQuery(className: "Book")
-        .fromLocalDatastore().ignoreACLs()
-        bookQuery.limit = 50
+        let bookQuery = PFQuery(className: "Publication")
+        .fromLocalDatastore()
         bookQuery.whereKey("publication_Type", equalTo: "Book")
         bookQuery.findObjectsInBackgroundWithBlock { (bookObject, error) -> Void in
             

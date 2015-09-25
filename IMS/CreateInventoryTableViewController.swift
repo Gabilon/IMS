@@ -109,6 +109,11 @@ class CreateInventoryTableViewController: UITableViewController {
     }
 
     @IBAction func updateButton(sender: AnyObject) {
+        //Show activity indicator
+        let spiningActivity = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
+        spiningActivity.labelText = "Updating"
+        spiningActivity.detailsLabelText = "Please wait"
         
         let query = PFQuery(className: "Publication")
         query.limit = 150
@@ -117,6 +122,7 @@ class CreateInventoryTableViewController: UITableViewController {
             query.findObjectsInBackgroundWithBlock({ (pubObject, error) -> Void in
                 if error == nil {
                     print("Succesfully retrieved \(pubObject!.count)")
+                    
                     PFObject.saveAllInBackground(pubObject, block: { (success, error) -> Void in
                         print("Saved \(pubObject!.count) in local DataStore")
                     })
@@ -124,6 +130,7 @@ class CreateInventoryTableViewController: UITableViewController {
                 }
             })
         }
+        spiningActivity.hide(true)
         
     }
     

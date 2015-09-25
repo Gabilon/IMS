@@ -56,6 +56,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
+        
+        
         //Spinning thing and does not let the user hit something else
         let spiningActivity = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
@@ -74,6 +76,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             //user:PFUser?
             if (user != nil){
                 
+                if user!["emailVerified"] as! Bool == true {
+                
                 //Remember the sign in state
                 let userName:String? = user?.username
                 
@@ -88,12 +92,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 
                 appDelegate.buildUserInterface()
                 
-                
+                } else  {
+                    
+                    userMessage = "Please verify your email address!"
+                    
+                    //Alert
+                    let myAlert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert)
+                    //Ok button
+                    let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+                    
+                    //adds the okAction to the alert
+                    myAlert.addAction(okAction)
+                    
+                    //presents it to the ViewController.swift
+                    self.presentViewController(myAlert, animated: true, completion: nil)
+
+                }
                 
                 
                 
             } else {
-                userMessage = error!.localizedDescription
+                userMessage = "Invalid username and password"
                 
                 //Alert
                 let myAlert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert)

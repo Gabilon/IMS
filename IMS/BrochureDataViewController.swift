@@ -20,8 +20,8 @@ class BrochureDataViewController: UIViewController {
         
         
     let brochureQuery = PFQuery(className: "Publication")
-        .fromLocalDatastore().ignoreACLs()
-        brochureQuery.limit = 50
+        .fromLocalDatastore()
+        
         brochureQuery.whereKey("publication_Type", equalTo: "Brochure")
         brochureQuery.findObjectsInBackgroundWithBlock { (brochureObject, error) -> Void in
             if error == nil {
