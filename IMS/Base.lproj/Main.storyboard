@@ -1010,7 +1010,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Iventory Management System" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWR-II-3EM">
                                         <rect key="frame" x="230" y="290" width="367" height="85"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="tintColor" patternImage="BBA708B3-AEB3-49A9-9A29-7F7B3EDF6DA3" colorSpace="pattern"/>
+                                        <color key="tintColor" patternImage="1EE7297E-EAE5-4D45-BE4E-CB22D09E9130" colorSpace="pattern"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="85" id="Wh3-C9-VtN"/>
                                             <constraint firstAttribute="width" constant="367" id="vFh-TT-gP4"/>
@@ -1567,7 +1567,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BBA708B3-AEB3-49A9-9A29-7F7B3EDF6DA3" width="640" height="920">
+        <image name="1EE7297E-EAE5-4D45-BE4E-CB22D09E9130" width="640" height="920">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
